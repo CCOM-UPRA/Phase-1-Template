@@ -10,6 +10,7 @@ from frontend_controller.shopController import *
 app = Flask(__name__, template_folder='frontend/')
 app.secret_key = 'akeythatissecret'
 
+
 # Redirects us here if no url is given
 @app.route("/", defaults={'message': None})
 # Or if any url other than the ones set in this Flask application is provided, making it a <message>
@@ -36,10 +37,33 @@ def login():
     return logincontroller(email=email, password=passcode)
 
 
-@app.route("/register")
-def register():
-    # FOR STUDENTS TO CREATE
-    return redirect("/")
+@app.route("/register/", defaults={'message': None})
+@app.route('/register/<message>')
+def register(message):
+    # Redirects to register page
+    return render_template('register.html', message=message)
+
+
+@app.route("/registerinfo", methods=['POST'])
+def registerinfo():
+    # Processs the register info
+    fname = request.form.get('fname')
+    lname = request.form.get('lname')
+    email = request.form.get('email')
+    pass1 = request.form.get('pass1')
+    pass2 = request.form.get('pass2')
+
+    if pass1 == pass2:
+        # Process register info here
+        # Since it will not be functioning right now, let's simulate we registered with our usual login info:
+        session['amount'] = 0
+        email = 'javier.quinones3@upr.edu'
+        passcode = 'pass1234'
+        logincontroller(email=email, password=passcode)
+
+        return redirect('/shop')
+    else:
+        return redirect('/register/<message>')
 
 
 @app.route("/shop")
