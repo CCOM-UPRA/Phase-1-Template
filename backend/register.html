@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="en" dir="ltr">
     <head>
         <!--=====================================
                     META TAG PART START
@@ -22,15 +22,16 @@
         =======================================-->
 
         <!-- WEBPAGE TITLE -->
-        <title>Greeny - Change Password</title>
+        <title>Greeny - Login</title>
 
         <!--=====================================
                     CSS LINK PART START
         =======================================-->
+        <!-- FAVICON -->
         <link rel="icon" href="{{url_for('static', filename='images/favicon.png')}}">
 
         <!-- FONTS -->
-         <link rel="stylesheet" href="{{url_for('static', filename='fonts/flaticon/flaticon.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='fonts/flaticon/flaticon.css')}}">
         <link rel="stylesheet" href="{{url_for('static', filename='fonts/icofont/icofont.min.css')}}">
         <link rel="stylesheet" href="{{url_for('static', filename='fonts/fontawesome/fontawesome.min.css')}}">
 
@@ -42,7 +43,7 @@
 
         <!-- CUSTOM -->
         <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
-        <link rel="stylesheet" href="{{url_for('static', filename='css/invoice.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/user-auth.css')}}">
         <!--=====================================
                     CSS LINK PART END
         =======================================-->
@@ -54,32 +55,45 @@
         <section class="user-form-part">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+                    <div class="col-12 col-sm-10 col-md-12 col-lg-12 col-xl-10">
                         <div class="user-form-logo">
-                            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                            <a href="index.html"><img src="{{url_for('static', filename='images/logo.png')}}" alt="logo"></a>
                         </div>
                         <div class="user-form-card">
                             <div class="user-form-title">
-                                <h2>any issue?</h2>
-                                <p>Make sure your current password is strong</p>
+                                <h2>welcome!</h2>
+                                <p>Use your credentials to access</p>
+                                {% if message != None %}
+                                    <h2 style="color: red">Passwords do not match. Please try again.</h2>
+                                {% endif %}
                             </div>
-                            <form class="user-form">
-                                <div class="form-group">
-                                    <input type="password" class="form-control" name="pass_o" placeholder="Old password">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" name="pass_n" placeholder="New password">
-                                </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" name="pass_n1" placeholder="Repeat new password">
-                                </div>
-                                <div class="form-button">
-                                    <button type="submit">change password</button>
-                                </div>
-                            </form>
+
+
+                            <div style='padding: 0px 30%' class="user-form-group">
+                                <form class="user-form" action="{{url_for('registerinfo')}}" method="POST">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="fname" placeholder="Enter your first name">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="lname" placeholder="Enter your last name">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="email" placeholder="Enter your email">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="pass1" placeholder="Enter your password">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" class="form-control" name="pass2" placeholder="Enter your password again">
+                                    </div>
+                                    <div class="form-button">
+                                        <button type="submit">register</button>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                         <div class="user-form-remind">
-                            <p>Go Back To<a href="{{url_for('profile')}}">Profile</a></p>
+                            <p>Have an account already?<a href="{{url_for('login')}}">return to login</a></p>
                         </div>
                         <div class="user-form-footer">
                             <p>Greeny | &COPY; Copyright by <a href="#">Mironcoder</a></p>
