@@ -6,7 +6,7 @@ def logincontroller(email, password):
     # print("hi2")
     result = loginmodel(email=email, password=password)
     print("testing login")
-    if result is "true":
+    if result == "true":
         print("login true")
         return redirect("/products")
     else:

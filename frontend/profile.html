@@ -110,7 +110,7 @@
             <div class="cart-header">
                 <div class="cart-total">
                     <i class="fas fa-shopping-basket"></i>
-                    <span>total item (3)</span>
+                    <span>total items (3)</span>
                 </div>
                 <button class="cart-close"><i class="icofont-close"></i></button>
             </div>
@@ -120,7 +120,7 @@
                     {% for key, item in session['cart'].items() %}
                 <li class="cart-item">
                     <div class="cart-media">
-                        <a href="#"><img src="images/product/05.jpg" alt="product"></a>
+                        <a href="#"><img src="static/images/product-images/{{item['image']}}" alt="product"></a>
                         <form action="{{url_for('delete', id=key)}}">
                         <button class="cart-delete"><i class="far fa-trash-alt"></i></button>
                         </form>
@@ -128,7 +128,7 @@
                     <div class="cart-info-group">
                         <div class="cart-info">
                             <h6><a href="product-single.html">{{item['name']}}</a></h6>
-                            <p>Unit Price - {{item['price']}}</p>
+                            <p>Unit Price - ${{item['price']}}0</p>
                         </div>
                         <div class="cart-action-group">
                             <div class="product-action">
@@ -139,7 +139,7 @@
                              <form action="{{url_for('editcart')}}" method="post">
                                     <button class="action">Edit</button>
                              </form>
-                            <h6>${{item['total_price']}}</h6>
+                            <h6>${{item['total_price']}}0</h6>
                         </div>
                     </div>
                 </li>
@@ -149,7 +149,7 @@
             <div class="cart-footer">
                 <a class="cart-checkout-btn" href="{{url_for('checkout')}}">
                     <span class="checkout-label">Proceed to Checkout</span>
-                    <span class="checkout-price">${{total}}</span>
+                    <span class="checkout-price">${{total}}0</span>
                 </a>
             </div>
         </aside>
@@ -231,7 +231,7 @@
                                     <div class="col-md-6 col-lg-4 alert fade show">
                                         <div class="profile-card contact active">
                                             <h6>primary</h6>
-                                            <p>{{user1['c_phone_number']}}</p>
+                                            <p>{{num}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -248,9 +248,9 @@
                                 <div class="row">
                                     <div class="col-md-6 col-lg-4 alert fade show">
                                         <div class="profile-card address active">
-                                            <p>{{user1['c_address_line-1']}}</p><br>
+                                            <p>{{user1['c_address_line_1']}}</p><br>
                                             <p>{{user1['c_address_line_2']}}</p><br>
-                                            <p>{{user1['c_city']}}, {{user1['c_state']}} &nbsp {{user1['c_zipcode']}}</p>
+                                            <p>{{user1['c_city']}}, {{user1['c_state']}} {{user1['c_zipcode']}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -367,6 +367,8 @@
                             <input class="form-control" name="card_type" type="text" value="{{user1['c_card_type']}}">
                         </div>
                         <div class="form-group">
+                            {% set exp_date_components = user1['c_exp_date'].split('-') %}
+                            {% set exp_date = exp_date_components[2] ~ '-' ~ exp_date_components[0] ~ '-' ~ exp_date_components[1] %}
                             <label class="form-label">expiration date (MM/DD/YYYY)</label>
                             <input class="form-control" name="date" type="date" value="{{user1['c_exp_date']}}">
                         </div>

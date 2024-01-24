@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from flask import Flask, render_template, redirect, request, session
 from frontend_controller.cartController import getCart, addCartController, deleteCartItem
 from frontend_controller.checkoutController import getUserCheckout
@@ -106,8 +108,18 @@ def profile():
     # Get user info from getUser() in profileController
     user = getUser(session['customer'])
 
+    # Set the cart's total amount for the page
+    total = 150.00
+
+    # Formatted phone number for display
+    num = '{:03d}-{:03d}-{:04d}'.format(
+        int(str(user['c_phone_number'])[:3]),
+        int(str(user['c_phone_number'])[3:6]),
+        int(str(user['c_phone_number'])[6:])
+    )
+
     # Since I specified the variable as user1, that is how it will be called on the html page
-    return render_template("profile.html", user1=user)
+    return render_template("profile.html", user1=user, total=total, num=num)
 
 
 @app.route("/editinfo", methods=["POST"])
@@ -165,12 +177,19 @@ def checkout():
         user = getUserCheckout()
         total = 0
 
+        # Formatted phone number for display
+        num = '{:03d}-{:03d}-{:04d}'.format(
+            int(str(user[10])[:3]),
+            int(str(user[10])[3:6]),
+            int(str(user[10])[6:])
+        )
+
         # calculate total from the session cart
         # Reminder: session['cart'] was created in app.route(/shop)
         # The cart itself is found in cartModel
         for key, item in session['cart'].items():
             total += item['total_price']
-        return render_template("checkout.html", user1=user, total=total)
+        return render_template("checkout.html", user1=user, num=num, total=total)
 
     else:
         # If customer isn't logged in, create session variable to tell us we're headed to checkout

@@ -10,9 +10,9 @@ orderDict = {
     "tracking_num": "71287249",
     "order_date": "01/17/23",
     "arrival_date": "01/20/23",
-    "address_line_1": "Vista Azulin Calle 11 L13",
-    "address_line_2": "Arecibor Puerto Ricor, 00614",
-    "total": 1197.00,
+    "address_line_1": "Vista Rojas Calle 15 L15",
+    "address_line_2": "Arecibo Puerto Rico, 00614",
+    "total": 577.00,
     "payment_method": "Mastercard"
 }
 

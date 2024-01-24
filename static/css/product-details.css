@@ -391,7 +391,7 @@
   margin: 45px 0px 15px;
 }
 
-.details-add-group .product-add,
+.details-add-group .product-add, .product-add2,
 .details-add-group .action-input {
   padding: 10px 0px;
   color: var(--white);

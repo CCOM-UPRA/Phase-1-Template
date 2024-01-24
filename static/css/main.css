@@ -1165,7 +1165,7 @@ button:focus {
   }
 }
 
-.product-add {
+.product-add, .product-add2 {
   width: 100%;
   font-size: 15px;
   padding: 6px 0px;
@@ -1191,7 +1191,7 @@ button:focus {
   -o-transition: all linear .3s;
 }
 
-.product-add i {
+.product-add i, .product-add2 i {
   font-size: 14px;
   margin-right: 5px;
 }

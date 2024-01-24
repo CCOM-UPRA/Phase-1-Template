@@ -118,7 +118,7 @@
             <div class="cart-header">
                 <div class="cart-total">
                     <i class="fas fa-shopping-basket"></i>
-                    <span>total item (3)</span>
+                    <span>total items (3)</span>
                 </div>
                 <button class="cart-close"><i class="icofont-close"></i></button>
             </div>
@@ -128,7 +128,7 @@
                     {% for key, item in session['cart'].items() %}
                 <li class="cart-item">
                     <div class="cart-media">
-                        <a href="#"><img src="images/product/05.jpg" alt="product"></a>
+                        <a href="#"><img src="static/images/product-images/{{item['image']}}" alt="product"></a>
                         <form action="{{url_for('delete', id=key)}}">
                         <button class="cart-delete"><i class="far fa-trash-alt"></i></button>
                         </form>
@@ -136,7 +136,7 @@
                     <div class="cart-info-group">
                         <div class="cart-info">
                             <h6><a href="product-single.html">{{item['name']}}</a></h6>
-                            <p>Unit Price - {{item['price']}}</p>
+                            <p>Unit Price - ${{item['price']}}0</p>
                         </div>
                         <div class="cart-action-group">
                             <div class="product-action">
@@ -147,7 +147,7 @@
                              <form action="{{url_for('editcart')}}" method="post">
                                     <button class="action">Edit</button>
                              </form>
-                            <h6>${{item['total_price']}}</h6>
+                            <h6>${{item['total_price']}}0</h6>
                         </div>
                     </div>
                 </li>
@@ -157,7 +157,7 @@
             <div class="cart-footer">
                 <a class="cart-checkout-btn" href="{{url_for('checkout')}}">
                     <span class="checkout-label">Proceed to Checkout</span>
-                    <span class="checkout-price">${{total}}</span>
+                    <span class="checkout-price">${{total}}0</span>
                 </a>
             </div>
         </aside>
@@ -174,7 +174,7 @@
             <div class="container">
                 <h2>Shop</h2>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Shop/</a></li>
+                    <li class="breadcrumb-item"><a href="#">Shop /</a></li>
                 </ol>
             </div>
         </section>
@@ -338,7 +338,7 @@
                                             <a href="product-video.html">{{product[1]}}</a>
                                         </h6>
                                         <h6 class="product-price">
-                                            <span>{{product[10]}}.00</span>
+                                            <span>${{product[10]}}.00</span>
                                         </h6>
                                         <button class="product-add" title="Add to Cart">
                                             <i class="fas fa-shopping-basket"></i>
@@ -363,8 +363,7 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="modal fade" id="product-view-{{product[0]}}">
+        <div class="modal fade" id="product-view-{{product[0]}}">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <button class="modal-close icofont-close" data-bs-dismiss="modal"></button>
@@ -392,8 +391,7 @@
                                         <p>Video Res: {{product[5]}}</p>
                                     </div>
                                     <h3 class="view-price">
-                                        <del>{{product[11]}}.00</del>
-                                        <span>{{product[10]}}.00</span>
+                                        <span>${{product[10]}}.00</span>
                                     </h3>
                                     <p class="view-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit non tempora magni repudiandae sint suscipit tempore quis maxime explicabo veniam eos reprehenderit fuga</p>
                                     <div class="view-add-group">

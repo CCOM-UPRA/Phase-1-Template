@@ -155,58 +155,61 @@
                                                 </td>
                                             </tr>
 
-
                                         <div class="modal fade" id="product-view-{{key}}">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <button class="modal-close icofont-close" data-bs-dismiss="modal"></button>
-                    <div class="product-view">
-                        <div class="row">
-                            <div class="col-md-6 col-lg-6">
-                                <div class="view-gallery">
-                                    <div class="view-label-group">
-                                        <label class="view-label new">{{item['stock']}} in stock</label>
-                                    </div>
-                                    <ul class="preview-slider">
-                                        <li><img src="static/images/product-images/{{item['image']}}" alt="product"></li>
-                                    </ul>
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <button class="modal-close icofont-close" data-bs-dismiss="modal"></button>
+                                                <div class="product-view">
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-lg-6">
+                                                            <div class="view-gallery">
+                                                                <div class="view-label-group">
+                                                                    <label class="view-label new">{{item['stock']}} in stock</label>
+                                                                </div>
+                                                                <ul class="preview-slider">
+                                                                    <li><img src="static/images/product-images/{{item['image']}}" alt="product"></li>
+                                                                </ul>
 
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-lg-6">
-                                <div class="view-details">
-                                    <h3 class="view-name">
-                                        <a href="product-video.html">{{item['name']}}</a>
-                                    </h3>
-                                    <div class="view-meta">
-                                        <p>Brand:<span>{{item['brand']}}</span></p>
-                                    </div>
-                                    <div class="view-meta">
-                                        <p>Wi-fi: {{item['wifi']}}</p>
-                                    </div>
-                                    <div class="view-meta">
-                                        <p>Video Res: {{item['videores']}}</p>
-                                    </div>
-                                    <h3 class="view-price">
-                                        <del>${{item['cost']}}0</del>
-                                        <span>${{item['price']}}0</span>
-                                    </h3>
-                                    <p class="view-desc">{{item['desc']}}</p>
-                                    <form action="{{url_for('checkout')}}" method="post">
-                                    <div class="view-add-group">
-                                            <input style="width: 75%; text-align:center" class="action-input" title="Quantity Number" type="number" name="quantity" value="{{item['quantity']}}">
-                                            <input type="hidden" id="p_id" name="p_id" value="{{key}}">
-                                            <input type="hidden" id="page" name="page" value="/checkout"><br>
-                                         <input type="submit" name="submit" id="submit" value="Edit amount">
-                                    </div>
-                                    </form>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6 col-lg-6">
+                                                            <div class="view-details">
+                                                                <h3 class="view-name">
+                                                                    <a href="product-video.html">{{item['name']}}</a>
+                                                                </h3>
+                                                                <div class="view-meta">
+                                                                    <p>Brand:<span>{{item['brand']}}</span></p><br>
+                                                                    <p>Wi-fi: {{item['wifi']}}</p><br>
+                                                                    <p>Video Res: ${{item['videores']}}</p>
+                                                                </div>
+                                                                <h3 class="view-price">
+                                                                    <span>${{item['price']}}0</span>
+                                                                </h3>
+                                                                <p class="view-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit non tempora magni repudiandae sint suscipit tempore quis maxime explicabo veniam eos reprehenderit fuga</p>
+                                                                <div class="view-add-group">
+                                                                    <button class="product-add" title="Add to Cart">
+                                                                        <span>Tap to change amount</span>
+                                                                    </button>
+                                                                    <div class="product-action">
+                                                                        <button class="action-minus" title="Quantity Minus"><i class="icofont-minus"></i></button>
+                                                                        <input class="action-input" title="Quantity Number" type="text" name="quantity" value="{{item['quantity']}}">
+                                                                        <button class="action-plus" title="Quantity Plus"><i class="icofont-plus"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="view-action-group">
+                                                                    <a class="view-wish wish" href="/checkout">
+                                                                       <i class="fas fa-shopping-cart"></i>
+                                                                        <span>Edit Amount</span>
+                                                                    </a>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                                         {% endfor %}
                                         {% endif %}
@@ -238,7 +241,7 @@
                                     <div class="col-md-6 col-lg-4 alert fade show">
                                         <div class="profile-card contact active">
                                             <h6>primary</h6>
-                                            <p>{{user1[10]}}</p>
+                                            <p>{{num}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -257,7 +260,7 @@
                                         <div class="profile-card address active">
                                             <p>{{user1[3]}}</p><br>
                                             <p>{{user1[4]}}</p><br>
-                                            <p>{{user1[5]}}, {{user1[6]}} &nbsp {{user1[7]}}</p>
+                                            <p>{{user1[5]}}, {{user1[6]}} {{user1[7]}}</p>
                                         </div>
                                     </div>
                                 </div>

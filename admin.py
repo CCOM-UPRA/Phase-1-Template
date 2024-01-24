@@ -81,6 +81,8 @@ def single_product(prodID):
 def editproduct():
     # process the changes to a product's information
     # not implemented in this phase
+
+    # Redirect us to the products list again
     return redirect('/products')
 
 
@@ -88,6 +90,15 @@ def editproduct():
 def addproduct():
     # Redirect us to the product creation page
     return render_template("add_product.html")
+
+
+@app.route("/createproduct", methods=['POST'])
+def createproduct():
+    # process the new product information and add to 'database'
+    # not implemented in this phase
+
+    # Redirect us to the products list again
+    return redirect('/products')
 
 
 @app.route("/accounts")
