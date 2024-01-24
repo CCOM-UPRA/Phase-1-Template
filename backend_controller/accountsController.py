@@ -1,8 +1,8 @@
 from backend_model.accountsModel import *
 
 
-def getaccounts():
-    return getaccountsmodel()
+def getaccounts(userType):
+    return getaccountsmodel(userType)
 
 
 def getaccount(acc):

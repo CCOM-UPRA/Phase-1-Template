@@ -158,7 +158,7 @@
 
                      <div style='padding: 0 40%' class="view-add-group">
                          <form action="{{url_for('orders')}}">
-                           <button style="" class="product-add">Save changes</button>
+                           <button style="" class="product-add2">Save changes</button>
                        </form>
                     </div>
 
@@ -200,12 +200,12 @@
                             <div class="account-content">
                                 <ul class="invoice-details">
                                     <li>
-                                        <h6>Total Items</h6>
-                                        <p># items</p>
+                                        <h6>Quantity</h6>
+                                        <p>{{quantity}} items</p>
                                     </li>
                                     <li>
                                         <h6>Total</h6>
-                                        <p>$10224.3231</p>
+                                        <p>${{order['total']}}0</p>
                                     </li>
 
                                 </ul>
@@ -236,9 +236,9 @@
                                         <td class="table-name"><h6>{{key}}</h6></td>
                                         <td class="table-name"><h6>{{prod['name']}}</h6></td>
                                         <td class="table-name"><h6>{{prod['brand']}}</h6></td>
-                                        <td class="table-price"><h6>${{prod['price']}}</h6></td>
+                                        <td class="table-price"><h6>${{prod['price']}}0</h6></td>
                                         <td class="table-brand"><h6>{{prod['quantity']}}</h6></td>
-                                         <td class="table-brand"><h6>${{prod['total_price']}}</h6></td>
+                                         <td class="table-brand"><h6>${{prod['total_price']}}0</h6></td>
 
                                     </tr>
                                 {% endfor %}

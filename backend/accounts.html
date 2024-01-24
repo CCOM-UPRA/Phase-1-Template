@@ -154,12 +154,18 @@
                 <div style='text-align: center'>
 
                         <br><br>
-                        <h2>Accounts</h2>
+                        <h2>{{userType}} Accounts</h2>
 
                      <div style='padding: 0 40%' class="view-add-group">
-                       <form action="{{url_for('createaccount')}}">
-                           <button style="" class="product-add">Add account</button>
-                       </form>
+                            <a style= "margin-top: 20px" href="{{url_for('createaccount', userType=userType)}}" class="product-add">Add Account</a>
+
+                       <ul class="dropdown">
+                        <a class="navbar-link dropdown-arrow" href="#">Account list</a>
+                                        <ul class="dropdown-position-list">
+                                            <li><a href="{{url_for('accounts', userType='customer')}}">Customers</a></li>
+                                            <li><a href="{{url_for('accounts', userType='administrator')}}">Administrators</a></li>
+                                        </ul>
+                        </ul>
 
                     </div>
 

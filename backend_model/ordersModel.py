@@ -9,7 +9,7 @@ orderDict1 = {"1": {
     "arrival_date": "01/20/23",
     "address_line_1": "Vista Azulin Calle 11 L13",
     "address_line_2": "Arecibor Puerto Ricor, 00614",
-    "total": 1197.00,
+    "total": 755.00,
     "payment_method": "Mastercard",
     'status': 'delivered'
 }}
@@ -23,7 +23,7 @@ orderDict2 = {'2': {
     "arrival_date": "01/20/23",
     "address_line_1": "Vista Azulin Calle 11 L13",
     "address_line_2": "Arecibor Puerto Ricor, 00614",
-    "total": 1197.00,
+    "total": 755.00,
     "payment_method": "Mastercard",
     'status': 'shipped'
 
@@ -38,7 +38,7 @@ orderDict3 = {'3': {
     "arrival_date": "01/20/23",
     "address_line_1": "Vista Azulin Calle 11 L13",
     "address_line_2": "Arecibor Puerto Ricor, 00614",
-    "total": 1197.00,
+    "total": 356.00,
     "payment_method": "Mastercard",
     'status': 'processed'
 }}
@@ -52,7 +52,7 @@ orderDict4 = {'4': {
     "arrival_date": "01/20/23",
     "address_line_1": "Vista Azulin Calle 11 L13",
     "address_line_2": "Arecibor Puerto Ricor, 00614",
-    "total": 1197.00,
+    "total": 399.00,
     "payment_method": "Mastercard",
     'status': 'cancelled'
 }}
