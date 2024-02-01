@@ -101,11 +101,11 @@ def createproduct():
     return redirect('/products')
 
 
-@app.route("/accounts")
-def accounts():
+@app.route("/accounts/<userType>")
+def accounts(userType):
     # Retrieve all accounts from 'database' and redirect us to accounts page
-    acc = getaccounts()
-    return render_template("accounts.html", accounts=acc)
+    acc = getaccounts(userType)
+    return render_template("accounts.html", accounts=acc, userType=userType)
 
 
 @app.route("/createaccount")
